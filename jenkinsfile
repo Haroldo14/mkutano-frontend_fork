@@ -8,7 +8,7 @@ pipeline {
 
             steps {
 
-                git branch: 'develop', url:'https://github.com/Haroldo14/mkutano-frontend_fork.git'
+                git branch: 'feature/sprint2', url:'https://github.com/Haroldo14/mkutano-frontend_fork.git'
 
             }
         }
@@ -27,9 +27,9 @@ pipeline {
         stage('archive') {
 
             steps {
-                //sh 'mvn deploy -P release-profile --settings ./.m2/settings.xml'
+                sh 'mvn deploy -P release-profile --settings ./.m2/settings.xml'
 
-                sh '''
+                '''sh 
                     mvn deploy:deploy-file
                         -Dfile=target/${project.artifactId}-runner.jar
                         -DrepositoryId=nexus
