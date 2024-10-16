@@ -9,7 +9,7 @@
         <server> 
             <id>nexus</id>
             <username>admin</username> 
-            <password>admin</password> 
+            <password>admin123</password> 
         </server>
      </servers>
      <mirrors>
@@ -46,7 +46,7 @@
       </profiles> 
       <activeProfiles>
         <!--make the profile active all the time -->
-        <activeProfile>nexus</activeProfile>
+        <activeProfile>admin</activeProfile>
       </activeProfiles>
     
     
