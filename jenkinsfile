@@ -1,5 +1,13 @@
 pipeline {
     agent any
+    environnment{
+        FILEPATH_SNAPSHOT='/var/jenkins_home/snapshot.txt'
+    }
+
+    parameters{
+        choice(name: 'BUILD_TYPE', choices: ['SNAPSHOT', 'RELEASE'], description: 'Choisissez le type de build')
+        string(name: 'VERSION', defaultValue: '1.0.0', description: 'La version de la release')
+    }
 
     stages{
         stage("stage1"){
