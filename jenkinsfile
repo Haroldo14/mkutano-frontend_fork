@@ -1,44 +1,41 @@
 pipeline {
-    agent {
-                docker { image 'maven:3.9.3-eclipse-temurin-17'
-                args '-v $HOME/.m2:/root/.m2' }
-            }
-    stages {
-        stage('Checkout project') {
+    agent any
 
-            steps {
-
-                git branch: 'feature/sprint2', url:'https://github.com/Haroldo14/mkutano-frontend_fork.git'
-
+    stages{
+        stage("stage1"){
+            steps{
+                script{
+                    echo "Bonjour step 1"
+                }
             }
         }
-        stage('Test') {
 
-            steps {
-                sh 'mvn clean verify'
+        stage("stage2"){
+            steps{
+                script{
+                    echo "Bonjour step 2"
+                }
             }
         }
-         stage('Build') {
-
-            steps {
-                sh 'mvn package'
+        stage("stage3"){
+            steps{
+                script{
+                    echo "Bonjour step 3"
+                }
             }
         }
-        stage('archive') {
-
-            steps {
-                sh 'mvn deploy -P release-profile --settings ./.m2/settings.xml'
-
-                '''sh 
-                    mvn deploy:deploy-file
-                        -Dfile=target/${project.artifactId}-runner.jar
-                        -DrepositoryId=nexus
-                        -Durl=http://nexus-repo.it4innov.fr/repository/maven-snapshots/
-                        -DgroupId=${project.groupId}
-                        -DartifactId=${project.artifactId}
-                        -Dversion=${project.version}
-                        -Dpackaging=jar
-                    '''
+        stage("stage4"){
+            steps{
+                script{
+                    echo "Bonjour step 4"
+                }
+            }
+        }
+        stage("stage5"){
+            steps{
+                script{
+                    echo "Bonjour step 5"
+                }
             }
         }
     }
