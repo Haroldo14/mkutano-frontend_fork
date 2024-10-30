@@ -23,10 +23,16 @@ pipeline {
                 }
             }
         }
-        stage("stage3"){
+        stage("build artefact"){
             steps{
                 script{
-                    echo "Bonjour step 3"
+                   if(params.BUILD_TYPE=='RELEASE'){
+                    sh "mvn versions:set -DnewVersion=${params.VERSION}"
+                   }else{
+                    sh "mvn versions:set -DnewVersion=${params.VERSION}-${params.BUILD_TYPE}"
+                   }
+                   sh 'mvn clean package'
+
                 }
             }
         }
