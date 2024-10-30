@@ -10,18 +10,16 @@ pipeline {
     }
 
     stages{
-        stage("stage1"){
+        stage("clean workspace"){
             steps{
-                script{
-                    echo "Bonjour step 1"
-                }
+                cleanWs()
             }
         }
 
-        stage("stage2"){
+        stage("checkout project"){
             steps{
                 script{
-                    echo "Bonjour step 2"
+                    git branch: env.BRANCH_NAME, url:'https://github.com/Haroldo14/mkutano-frontend_fork.git' , credentialsId:'Github_user'
                 }
             }
         }
