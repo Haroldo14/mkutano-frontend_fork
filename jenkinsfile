@@ -36,10 +36,11 @@ pipeline {
                 }
             }
         }
-        stage("stage4"){
+        stage("Push to Nexus"){
             steps{
                 script{
                     echo "Bonjour step 4"
+                    sh 'mvn deploy -DskipTests'
                 }
             }
         }
