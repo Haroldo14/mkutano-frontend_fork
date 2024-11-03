@@ -2,6 +2,10 @@ pipeline {
     agent any
     environment{
         FILEPATH_SNAPSHOT='/var/jenkins_home/snapshot.txt'
+        NEXUS_USERNAME = credentials('admin')
+        NEXUS_PASSWORD = credentials('admin123')
+
+
     }
 
     parameters{
