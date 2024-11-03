@@ -3,12 +3,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <distributionManagement>
     <repository>
-      <id>nexus</id>
+      <id>admin</id>
       <name>Releases</name>
       <url>http://217.160.24.222:8081/repository/haroldo_release/</url>
     </repository>
     <snapshotRepository>
-      <id>nexus</id>
+      <id>admin</id>
       <name>Snapshot</name>
       <url>http://217.160.24.222:8081/repository/haroldo_snapshoot/</url>
     </snapshotRepository>
