@@ -61,10 +61,10 @@ pipeline {
         stage('Login to Harbor') {
             steps {
                 script {
-                    docker.withRegistry("https://${HARBOR_REGISTRY}", "${DOCKER_CREDENTIALS_ID}") {
+                    docker.withRegistry("https://${HARBOR_REGISTRY}", "${DOCKER_CREDENTIALS_ID}")
                         echo "Logged into Harbor successfully."
-                    }
-                }
-            }
+                }    
+            }   
+        }
     }
 }
