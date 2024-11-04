@@ -40,8 +40,6 @@
         <scope>import</scope>
       </dependency>
     </dependencies>
-  </dependencyManagement>
-  <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-reactive-qute</artifactId>
