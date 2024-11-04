@@ -69,14 +69,12 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-reactive</artifactId>
     </dependency>
-    <!-- Ajout de la dependance lombok pour générer les getters, setters, constructeurs, equals, hashcode, toString, ... -->
+    <!-- Ajout de la dépendance lombok pour générer les getters, setters, constructeurs, equals, hashcode, toString, ... -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>${lombok.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
+      <scope>provided</scope>    </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -86,8 +84,7 @@
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
-    </dependency>
-  </dependencies>
+    </dependency></dependencies>
   <build>  
     <plugins>
       <plugin>
@@ -174,8 +171,7 @@
           </execution>
         </executions>
       </plugin>
-    </plugins>
-  </build>
+    </plugins>  </build>
   <profiles>
     <profile>
       <id>native</id>
@@ -189,5 +185,4 @@
         <quarkus.package.type>native</quarkus.package.type>
       </properties>
     </profile>
-  </profiles>
-</project>
+  </profiles></project>  
