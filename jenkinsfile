@@ -44,7 +44,7 @@ pipeline {
             steps{
                 script{
                     echo "Bonjour step 4"
-                    sh "mvn clean deploy -P nexus -DskipTests --settings /var/jenkins_home/.m2/settings.xml"
+                    sh "mvn clean deploy -P admin -DskipTests --settings /var/jenkins_home/.m2/settings.xml"
 
                 }
             }
