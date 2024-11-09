@@ -53,7 +53,7 @@ pipeline {
             steps {
                 script {
                     def dockerTag = "${IMAGE_NAME}:${params.VERSION}-${params.BUILD_TYPE}".toLowerCase()
-                    sh "docker buildx build -t ${dockerTag} ."
+                    sh "sudo docker buildx build -t ${dockerTag} ."
                 }
             }
         }
