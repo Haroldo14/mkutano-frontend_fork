@@ -52,9 +52,10 @@ pipeline {
         stage("Build Docker Image") {
             steps {
                 script {
-                    def dockerTag = "${IMAGE_NAME}:${params.VERSION}-${params.BUILD_TYPE}".toLowerCase()
-                    sh "docker build -t ${dockerTag} ."
-                    sh "docker scout cves ${dockerTag}"
+                    //def dockerTag = "${IMAGE_NAME}:${params.VERSION}-${params.BUILD_TYPE}".toLowerCase()
+                    //sh "docker build -t ${dockerTag} ."
+                    dockerImage = docker.build("quarkus-run:${params.VERSION}", ".");
+                    //sh "docker scout cves ${dockerTag}"
                 }
             }
         }
