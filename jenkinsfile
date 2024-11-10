@@ -2,10 +2,8 @@ pipeline {
     agent any
     environment{
         FILEPATH_SNAPSHOT='/var/jenkins_home/snapshot.txt'
-        HARBOR_REGISTRY = 'http://217.160.24.222/harbor/projects'
-        IMAGE_NAME = "${HARBOR_REGISTRY}/mkutano-frontend/frontend_app:1.0.0"
-        DOCKER_CREDENTIALS_ID = 'Harbor_user' //harbor credential id
-     
+        // HARBOR_REGISTRY = 'http://217.160.24.222/harbor/projects'
+             
     }
 
     parameters{
@@ -63,8 +61,13 @@ pipeline {
         stage('Login to Harbor') {
             steps {
                 script {
-                    docker.withRegistry("https://${HARBOR_REGISTRY}", "${DOCKER_CREDENTIALS_ID}")
-                        echo "Logged into Harbor successfully."
+                    //docker.withRegistry("https://${HARBOR_REGISTRY}", "${DOCKER_CREDENTIALS_ID}")
+                        //echo "Logged into Harbor successfully."
+                    withCredentials([usernamePassword(credentialsId: 'Harbor_user', usernameVariable: 'HARBOR_USERNAME', passwordVariable: 'HARBOR_PASSWORD')]) {
+                    sh 'docker login -u $HARBOR_USERNAME -p $HARBOR_PASSWORD http://217.160.24.222:80'
+                    // Tag the image
+                    sh "docker tag quarkus-run:${params.VERSION} 217.160.24.222:80/harbor/projets/mkutano-frontend/quarkus-run:${params.VERSION}"
+                    }
                 }    
             }   
         }
