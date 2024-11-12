@@ -34,7 +34,7 @@ pipeline {
                     sh "mvn versions:set -DnewVersion=${params.VERSION}-${params.BUILD_TYPE}"
                    }
                    sh 'mvn clean package' //--settings /var/jenkins_home/.m2/settings.xml'
-                   sh 'ls /etc/docker/daemon.json'
+                   //sh 'ls /etc/docker/daemon.json'
                 }
             }
         }
