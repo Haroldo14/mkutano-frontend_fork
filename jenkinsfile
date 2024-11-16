@@ -64,9 +64,9 @@ pipeline {
                     //docker.withRegistry("https://${HARBOR_REGISTRY}", "${DOCKER_CREDENTIALS_ID}")
                         //echo "Logged into Harbor successfully."
                     withCredentials([usernamePassword(credentialsId: 'Harbor_user', usernameVariable: 'HARBOR_USERNAME', passwordVariable: 'HARBOR_PASSWORD')]) {
-                    sh 'docker login -u $HARBOR_USERNAME -p $HARBOR_PASSWORD http://217.160.24.222:80'
+                    sh 'docker login -u $HARBOR_USERNAME -p $HARBOR_PASSWORD http://217.160.24.222:8085'
                     // Tag the image
-                    sh "docker tag quarkus-run:${params.VERSION} 217.160.24.222:80/harbor/projets/mkutano-frontend/quarkus-run:${params.VERSION}"
+                    sh "docker tag quarkus-run:${params.VERSION} 217.160.24.222:8085/harbor/projets/mkutano-frontend/quarkus-run:${params.VERSION}"
                     }
                 }    
             }   
